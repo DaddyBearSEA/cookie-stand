@@ -1,3 +1,3 @@
 'use strict'
 
-console.log('sup')
+console.log('sup - this is app.js')
