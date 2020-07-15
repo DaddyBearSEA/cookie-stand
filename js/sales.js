@@ -26,32 +26,31 @@ var storeStatistics = {
   cookieSoldArray: [],
   randomCustomerNo: function () {
     return Math.floor(Math.random() * (Math.ceil(this.customerMax) - Math.floor(this.customerMin)) + this.customerMin);
-  }, 
+  },
 
   cookiesSoldPerHour: function () {
-    
+
     for (var i = 0; i < 14; i++) {
       var cookiesSoldThisHour = this.randomCustomerNo() * this.avgCookieSales;
-      var roundedCookies = Math.floor(cookiesSoldThisHour);  
+      var roundedCookies = Math.floor(cookiesSoldThisHour);
       this.cookieSoldArray[i] = roundedCookies;
-     
-      // this.cookieSoldArray[i] = roundedCookies;  
-           
-      }
+}
+},
 
-    },
+  outputStoreStatistics: function(){
+
+    var storeOutput = document.getElementById('storeStatistics-output'); // parent
+    var storeNameList = document.createElement('li'); // child
+    storeNameList.textContent = this.storeName; // data from object
+    storeOutput.appendChild(storeNameList);
+
+  },
+
+}
+
+storeStatistics.outputStoreStatistics();
 
 
- }
-
-// console.logs here!
-storeStatistics.cookiesSoldPerHour();
 
 
-
-
-// console.log(this.randomCustomerNo());
-//       console.log(this.avgCookieSales);
-//       console.log(cookiesSoldThisHour);
-//       console.log(roundedCookies);
  
