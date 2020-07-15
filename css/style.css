@@ -1,4 +1,16 @@
 
 body{
   background-color: salmon;
+  
+}
+#outputStoreName {
+  background-color: skyblue;
+  display: inline-block;
+  
+}
+div h3 {
+  vertical-align: top;
+}
+div ul{
+  vertical-align: bottom;
 }
