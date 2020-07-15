@@ -17,6 +17,8 @@
 // 2.	Uses a method of that object to generate a random number of customers per hour. Objects/Math/random will eventually pass a variable but each store is set to a Max Number.
 
 // var storeName = 'Seattle';
+// global variable for hours of operations
+var hoursOfOp = ['6 am', '7 am', '8 am', '9 am', '10 am','11 am','12 pm','1 pm','2 pm','3 pm','4 pm','5 pm','6 pm','7 pm']
 
     var storeStatistics = {
       storeName: 'Seattle',
@@ -49,13 +51,21 @@
         for (var i = 0; i < this.cookieSoldArray.length; i++){
           var storeOutput = document.getElementById('storeStatistics-output'); // parent
         var storeNameList = document.createElement('li'); // child
-        storeNameList.textContent = this.cookieSoldArray[i] //  data from object
+        storeNameList.textContent = hoursOfOp[i] + ' ' + this.cookieSoldArray[i] //  data from object
         storeOutput.appendChild(storeNameList);
-        /*child.textContent = this.name + ' the ' + this.color + ' is ' + this.age + ' cat years old, wake up and give her food'; */
-
+        
       }
 
-    }
+    },
+      
+    totalNumberOfCookies: function (){
+        return this.cookieSoldArray.reduce(function(a,b){
+          return a + b
+        }, 0);
+        
+      }
+
+
 
   };
 
@@ -64,10 +74,5 @@
 storeStatistics.cookiesSoldPerHour();
 storeStatistics.outputStoreName();
 storeStatistics.outputStoreStatistics();
+storeStatistics.totalNumberOfCookies() // not working ugh!
 
-
-// to print an object value on to HTML
-// parent that grabs the element id
-// child declared createing the html element you need
-// child.textContent on the key of the object
-// parent.appendChild value name 
