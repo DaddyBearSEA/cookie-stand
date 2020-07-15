@@ -18,40 +18,56 @@
 
 // var storeName = 'Seattle';
 
-var storeStatistics = {
-  storeName: 'Seattle',
-  customerMin: 23,
-  customerMax: 65,
-  avgCookieSales: 6.3,
-  cookieSoldArray: [],
-  randomCustomerNo: function () {
-    return Math.floor(Math.random() * (Math.ceil(this.customerMax) - Math.floor(this.customerMin)) + this.customerMin);
-  },
+    var storeStatistics = {
+      storeName: 'Seattle',
+      customerMin: 23,
+      customerMax: 65,
+      avgCookieSales: 6.3,
+      cookieSoldArray: [],
+      randomCustomerNo: function () {
+        return Math.floor(Math.random() * (Math.ceil(this.customerMax) - Math.floor(this.customerMin)) + this.customerMin);
+      },
 
-  cookiesSoldPerHour: function () {
+      cookiesSoldPerHour: function () {
 
-    for (var i = 0; i < 14; i++) {
-      var cookiesSoldThisHour = this.randomCustomerNo() * this.avgCookieSales;
-      var roundedCookies = Math.floor(cookiesSoldThisHour);
-      this.cookieSoldArray[i] = roundedCookies;
-}
-},
+        for (var i = 0; i < 14; i++) {
+          var cookiesSoldThisHour = this.randomCustomerNo() * this.avgCookieSales;
+          var roundedCookies = Math.floor(cookiesSoldThisHour);
+          this.cookieSoldArray[i] = roundedCookies;
+        }
+      },
 
-  outputStoreStatistics: function(){
+      outputStoreName: function () {
+        var nameOutput = document.getElementById('outputStoreName'); //parent
+        var nameStoreOutput = document.createElement('h3'); // child
+        nameStoreOutput.textContent = this.storeName //data from obj
+        nameOutput.appendChild(nameStoreOutput);
+      },
 
-    var storeOutput = document.getElementById('storeStatistics-output'); // parent
-    var storeNameList = document.createElement('li'); // child
-    storeNameList.textContent = this.storeName; // data from object
-    storeOutput.appendChild(storeNameList);
 
-  },
+      outputStoreStatistics: function () {
+        for (var i = 0; i < this.cookieSoldArray.length; i++){
+          var storeOutput = document.getElementById('storeStatistics-output'); // parent
+        var storeNameList = document.createElement('li'); // child
+        storeNameList.textContent = this.cookieSoldArray[i] //  data from object
+        storeOutput.appendChild(storeNameList);
+        /*child.textContent = this.name + ' the ' + this.color + ' is ' + this.age + ' cat years old, wake up and give her food'; */
 
-}
+      }
 
+    }
+
+  };
+
+// Make the calls for the object to run 
+
+storeStatistics.cookiesSoldPerHour();
+storeStatistics.outputStoreName();
 storeStatistics.outputStoreStatistics();
 
 
-
-
- 
- 
+// to print an object value on to HTML
+// parent that grabs the element id
+// child declared createing the html element you need
+// child.textContent on the key of the object
+// parent.appendChild value name 
