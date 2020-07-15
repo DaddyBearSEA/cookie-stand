@@ -3,11 +3,12 @@ body{
   background-color: salmon;
   
 }
-#outputStoreName {
+div{
   background-color: skyblue;
   display: inline-block;
   
 }
+
 div h3 {
   vertical-align: top;
 }
