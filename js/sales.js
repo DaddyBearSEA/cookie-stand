@@ -3,7 +3,7 @@
 
 // 1.	Stores the min/max hourly customers, and the average cookies per customer, in object properties
 // 2.	Uses a method of that object to generate a random number of customers per hour. Objects/Math/random
-// 3.	Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated set up a count per hour and apply that to a console log and then to the HTML page. (math = avgCookies * randeomNumberOfCustomers = numberOfCookiesPurchased)
+// 3.	Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated set up a count per hour and apply that to a RETURN Array? and then to the HTML page. (math = avgCookies * randeomNumberOfCustomers = numberOfCookiesPurchased)
 // 4.	Store the results for each location in a separate array… perhaps as a property of the object representing that location. Set a key: value creating an Array with the properties of each store per hour. 
 // 5.	Display the values of each array as unordered lists in the browser
 // 6.	Calculating the sum of these hourly totals; 
@@ -23,34 +23,35 @@ var storeStatistics = {
   customerMin: 23,
   customerMax: 65,
   avgCookieSales: 6.3,
-  randomCustomer: function () {
-    return Math.floor(Math.random() * Math.floor(this.customerMax));
-  },
-  customerPerHour: function () {
+  cookieSoldArray: [],
+  randomCustomerNo: function () {
+    return Math.floor(Math.random() * (Math.ceil(this.customerMax) - Math.floor(this.customerMin)) + this.customerMin);
+  }, 
+
+  cookiesSoldPerHour: function () {
+    
     for (var i = 0; i < 14; i++) {
+      var cookiesSoldThisHour = this.randomCustomerNo() * this.avgCookieSales;
+      var roundedCookies = Math.floor(cookiesSoldThisHour);  
+      this.cookieSoldArray[i] = roundedCookies;
+     
+      // this.cookieSoldArray[i] = roundedCookies;  
+           
+      }
 
-    }
-  }
+    },
 
-}
 
- console.log('random number of cust: ' + storeStatistics.randomCustomer());
+ }
+
+// console.logs here!
+storeStatistics.cookiesSoldPerHour();
+
+
+
+
+// console.log(this.randomCustomerNo());
+//       console.log(this.avgCookieSales);
+//       console.log(cookiesSoldThisHour);
+//       console.log(roundedCookies);
  
-
-// console.log('name of store: ' + storeStatistics.storeName);
-// console.log('name of Min Cust: ' + storeStatistics.customerMin);
-// console.log('name of Max Cust: ' + storeStatistics.customerMax);
-// console.log('name of Avg Cookie Sales: ' + storeStatistics.avgCookieSales);
-
-// foung this on MDM math.random
-// function getRandomInt(max) {
-//   return Math.floor(Math.random() * Math.floor(max));
-// }
-
-// console.log('random int < 10: ' + getRandomInt(10));
-// // expected output: 0, 1 or 2
-
-// console.log('randome int < 5: ' + getRandomInt(5));
-// // expected output: 0
-
-// console.log('randome number < 1: ' + Math.random());
