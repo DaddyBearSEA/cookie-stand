@@ -9,9 +9,14 @@ div{
   
 }
 
-div h3 {
-  vertical-align: top;
+h3 {
+  float: left;
+  align-items: center;
+  
+  
 }
 div ul{
-  vertical-align: bottom;
+  float: left;
+  margin-top: 50px;
+
 }
