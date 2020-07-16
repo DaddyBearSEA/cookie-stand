@@ -1,8 +1,6 @@
-
 body{
   max-width: 960px;
   margin: auto;
-  background-color: salmon;
 }
 header {
   float: left;
@@ -31,18 +29,13 @@ header ul li{
 
 }
 
-
-
-
-div{
-  background-color: skyblue;
-  display: inline-block;
-  
+feature ul{
+  list-style: url('img/salmon-list.png');
 }
 
-div h3 {
-  vertical-align: top;
+
+/* feature ul li:before{
+  list-style-image: url('img/salmon-list.png');
+
 }
-div ul{
-  vertical-align: bottom;
-}
+   */
