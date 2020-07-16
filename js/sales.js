@@ -20,59 +20,73 @@
 // global variable for hours of operations
 var hoursOfOp = ['6 am', '7 am', '8 am', '9 am', '10 am','11 am','12 pm','1 pm','2 pm','3 pm','4 pm','5 pm','6 pm','7 pm']
 
-    var storeStatistics = {
-      storeName: 'Seattle',
-      customerMin: 23,
-      customerMax: 65,
-      avgCookieSales: 6.3,
-      cookieSoldArray: [],
-      randomCustomerNo: function () {
-        return Math.floor(Math.random() * (Math.ceil(this.customerMax) - Math.floor(this.customerMin)) + this.customerMin);
-      },
+var storeStatistics = {
+  storeName: 'Seattle',
+  customerMin: 23,
+  customerMax: 65,
+  avgCookieSales: 6.3,
+  cookieSoldArray: [],
+  storesCookieTotalSales: 0,
+  randomCustomerNo: function () {
+    return Math.floor(Math.random() * (Math.ceil(this.customerMax) - Math.floor(this.customerMin)) + this.customerMin);
+  },
 
-      cookiesSoldPerHour: function () {
+  cookiesSoldPerHour: function () {
 
-        for (var i = 0; i < 14; i++) {
-          var cookiesSoldThisHour = this.randomCustomerNo() * this.avgCookieSales;
-          var roundedCookies = Math.floor(cookiesSoldThisHour);
-          this.cookieSoldArray[i] = roundedCookies;
-        }
-      },
+    for (var i = 0; i < 14; i++) {
+      var cookiesSoldThisHour = this.randomCustomerNo() * this.avgCookieSales;
+      var roundedCookies = Math.floor(cookiesSoldThisHour);
+      this.cookieSoldArray[i] = roundedCookies;
+    }
+  },
 
-      outputStoreName: function () {
-        var nameOutput = document.getElementById('outputStoreName'); //parent
-        var nameStoreOutput = document.createElement('h3'); // child
-        nameStoreOutput.textContent = this.storeName //data from obj
-        nameOutput.appendChild(nameStoreOutput);
-      },
+  outputStoreName: function () {
+    var nameOutput = document.getElementById('outputStoreName'); //parent
+    var nameStoreOutput = document.createElement('h3'); // child
+    nameStoreOutput.textContent = this.storeName //data from obj
+    nameOutput.appendChild(nameStoreOutput);
+  },
 
+  outputStoreStatistics: function () {
+    for (var i = 0; i < this.cookieSoldArray.length; i++) {
+      var storeOutput = document.getElementById('storeStatistics-output'); // parent
+      var storeNameList = document.createElement('li'); // child
+      storeNameList.textContent = hoursOfOp[i] + ' ' + this.cookieSoldArray[i] //  data from object
+      storeOutput.appendChild(storeNameList);
 
-      outputStoreStatistics: function () {
-        for (var i = 0; i < this.cookieSoldArray.length; i++){
-          var storeOutput = document.getElementById('storeStatistics-output'); // parent
-        var storeNameList = document.createElement('li'); // child
-        storeNameList.textContent = hoursOfOp[i] + ' ' + this.cookieSoldArray[i] //  data from object
-        storeOutput.appendChild(storeNameList);
-        
-      }
+    }
 
-    },
+  },
+
+  totalNumberOfCookies: function () {
+    // console.log('inside totalNumberOfCookies');
+    // console.log(this.cookieSoldArray);
+    for (var i = 0; i < this.cookieSoldArray.length; i++){
+      this.storesCookieTotalSales += this.cookieSoldArray[i];
+      // console.log(this.cookieSoldArray[i]);
+      // console.log('Total cookie amount: ' + this.storesCookieTotalSales);
       
-    totalNumberOfCookies: function (){
-        return this.cookieSoldArray.reduce(function(a,b){
-          return a + b
-        }, 0);
-        
-      }
+    }
+    
 
+  },
+  outputStoreTotalDailySales: function() {
+    var storeTotalSales = document.getElementById('storeStatistics-output'); // parent
+    var storeTotalSalesOutput = document.createElement('li'); // child
+    storeTotalSalesOutput.textContent = 'Total Sales for the Day ' + this.storesCookieTotalSales;
+    storeTotalSales.appendChild(storeTotalSalesOutput);
 
+  }
 
-  };
+};
 
 // Make the calls for the object to run 
 
 storeStatistics.cookiesSoldPerHour();
+storeStatistics.totalNumberOfCookies();
 storeStatistics.outputStoreName();
 storeStatistics.outputStoreStatistics();
-storeStatistics.totalNumberOfCookies() // not working ugh!
+storeStatistics.outputStoreTotalDailySales();
 
+
+// thes methods will cause you issues - 5 objects??  total duplicate.  protoype method 
