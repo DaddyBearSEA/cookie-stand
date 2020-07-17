@@ -90,3 +90,21 @@ storeStatistics.outputStoreTotalDailySales();
 
 
 // thes methods will cause you issues - 5 objects??  total duplicate.  protoype method 
+
+
+// ================  start of forms  ===========================
+// the value from avgCustomer is a string so you need to convert it to an integer
+
+var createStoreForm = document.getElementById('buildNewStore');
+
+createStoreForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+  console.log('submit works!');
+  var inputStoreName = event.target.storename.value;
+  var inputMinCustomers = event.target.minCustomers.value;
+  var inputMaxCustomers = event.target.maxCustomer.value;
+  var inputAvgCustomers = event.target.avgCustomer.value;
+  alert ('You Inputting ' + inputStoreName + ' ' + inputMinCustomers + ' ' + inputMaxCustomers + ' ' + inputAvgCustomers); 
+   
+});
+

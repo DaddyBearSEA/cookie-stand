@@ -22,6 +22,35 @@
   <main>
     some text on main element
   </main>
+  <div id='buildNewStore'>
+    <form>
+      <fieldset>
+        <legend>Build a New Store</legend>
+        <h4>enter the new store information</h4>
+        
+        <label for= "storename">Store Name: (required)*</label>
+        <input name= "storename" type="text" required></input><br>
+
+        <label for = "minCustomers">Min Customers: </label>
+        <input name = "minCustomers" type= "number"></input><br>
+
+        <label for = "maxCustomer">Max Customers: </label>
+        <input name = "maxCustomer" type="number"></input><br>
+
+        <label for = "avgCustomer">Avg Customers: (required)* </label>
+        <input name= "avgCustomer" type="number" required step="any" min=0/>></input><br>
+        
+        <!-- <button type="submit">Create Store</button> -->
+        <input type="submit" value="Create Store">
+        <p>* are required fields to build estimates for store!</p>
+
+
+    
+      </fieldset>
+    </form>
+
+
+  </div>
 
   <div >
     Store name and document write store statistics will be. h1 and below will be the data per store 
