@@ -30,24 +30,21 @@ header ul li{
   margin-right: 90px;
 
 }
-
-
-
-
-div{
-  background-color: skyblue;
+.buildNewStore {
   display: inline-block;
+  background-color: skyblue;
   
 }
-
-h3 {
-  float: left;
-  align-items: center;
-  
-  
+div{
+  display: inline-block;
+  background-color: skyblue;  
 }
+ 
 div ul{
-  float: left;
   margin-top: 50px;
+  align-items: center;
+  align-content: center;
+ 
 
 }
+/* so create a Unique UL for each city
