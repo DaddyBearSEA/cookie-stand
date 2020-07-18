@@ -33,10 +33,10 @@ function newStore(name, minCustomers, maxCustomers, avgCookies) {
   this.customerMax = maxCustomers;
   this.avgCookieSales = avgCookies;
   this.storesCookieSoldArray = [];
-  this.storesCookieTotalSales = 0
   this.randomCustomerNo = function () {
     return Math.floor(Math.random() * (Math.ceil(this.customerMax) - Math.floor(this.customerMin)) + this.customerMin);
   } 
+  this.storesCookieTotalSales = 0
 }
 // this works
 newStore.prototype.outputStoreName = function () {
@@ -57,6 +57,7 @@ newStore.prototype.outputStoreName = function () {
   }
 
 
+// TODO: change these to Table Elements for HTML 
 
 newStore.prototype.outputStoreStatistics = function () {
   for (var i = 0; i < this.storesCookieSoldArray.length; i++) {
@@ -66,14 +67,27 @@ newStore.prototype.outputStoreStatistics = function () {
     storeOutput.appendChild(storeNameList);
   }
 }
+// TODO: Add the store totals to methods
+
+newStore.prototype.totalNumberOfCookies = function () {
+  for (var i = 0; i < this.storesCookieSoldArray.length; i++) {
+    this.storesCookieTotalSales += this.storesCookieSoldArray[i];
+  }
+  var storeTotalSales = document.getElementById('storeStatistics-output-SEA'); // parent
+  var storeTotalSalesOutput = document.createElement('li'); // child
+  storeTotalSalesOutput.textContent = 'Total: ' + this.storesCookieTotalSales;
+  storeTotalSales.appendChild(storeTotalSalesOutput);
+}
 
 
+
+//  ========================  Call to make new store  ==============================
 var makeNewStore = new newStore('Seattle', 23, 65, 6.3)  // makes new store and passes parameters into the object
-// console.log(makeNewStore.storeName + ' avg cookies sales ' + makeNewStore.avgCookieSales()); 
 
 makeNewStore.outputStoreName(); //this puts a dot on the screen and name of store!
 makeNewStore.cookiesSoldPerHour();
 makeNewStore.outputStoreStatistics();
+makeNewStore.totalNumberOfCookies();
 
 
 // storesCookieSoldArray[0].cookieSoldArray();
@@ -91,101 +105,11 @@ makeNewStore.outputStoreStatistics();
 // console.log(makeNewStore.storeName + ' avg cookies sales ' + makeNewStore.avgCookieSales);
     
       
-// Seattle store information - adding back in one piece at a time
-
-
-//   this.cookiesSoldPerHour = function () {
-//     for (var i = 0; i < 14; i++) {
-//       var cookiesSoldThisHour = this.randomCustomerNo() * this.avgCookieSales;
-//       var roundedCookies = Math.floor(cookiesSoldThisHour);
-//       this.cookieSoldArray[i] = roundedCookies;
-//     }
-//   }
-//   // this.outputStoreName = function () {
-//   //   var nameOutput = document.getElementById('outputStoreName-SEA'); //parent
-//   //   var nameStoreOutput = document.createElement('li'); // child
-//   //   nameStoreOutput.textContent = this.storeName //data from obj
-//   //   nameOutput.appendChild(nameStoreOutput);
-//   // }
-//   this.outputStoreStatistics = function () {
-//     for (var i = 0; i < this.cookieSoldArray.length; i++) {
-//       var storeOutput = document.getElementById('storeStatistics-output-SEA'); // parent
-//       var storeNameList = document.createElement('li'); // child
-//       storeNameList.textContent = hoursOfOp[i] + ' ' + this.cookieSoldArray[i] //  data from object
-//       storeOutput.appendChild(storeNameList);
-//     }
-//     this.totalNumberOfCookies = function () {
-//       for (var i = 0; i < this.cookieSoldArray.length; i++) {
-//         this.storesCookieTotalSales += this.cookieSoldArray[i];
-//       }
-//       this.outputStoreTotalDailySales = function () {
-//         var storeTotalSales = document.getElementById('storeStatistics-output-SEA'); // parent
-//         var storeTotalSalesOutput = document.createElement('li'); // child
-//         storeTotalSalesOutput.textContent = 'Total: ' + this.storesCookieTotalSales;
-//         storeTotalSales.appendChild(storeTotalSalesOutput);
-//       }
-
-//     }
-//   }
 
 
 
-// var storeStatistics = {
-  // storeName: 'Seattle',
-  // customerMin: 23,
-  // customerMax: 65,
-  // avgCookieSales: 6.3,
-  // cookieSoldArray: [],
-  // storesCookieTotalSales: 0,
-  // randomCustomerNo: function () {
-  //   return Math.floor(Math.random() * (Math.ceil(this.customerMax) - Math.floor(this.customerMin)) + this.customerMin);
-  // },
 
-  // cookiesSoldPerHour: function () {
-  // },
 
-  // outputStoreName: function () {
-  //   var nameOutput = document.getElementById('outputStoreName-SEA'); //parent
-  //   var nameStoreOutput = document.createElement('li'); // child
-  //   nameStoreOutput.textContent = this.storeName //data from obj
-  //   nameOutput.appendChild(nameStoreOutput);
-  // },
-
-  // outputStoreStatistics: function () {
-  //   for (var i = 0; i < this.cookieSoldArray.length; i++) {
-  //     var storeOutput = document.getElementById('storeStatistics-output-SEA'); // parent
-  //     var storeNameList = document.createElement('li'); // child
-  //     storeNameList.textContent = hoursOfOp[i] + ' ' + this.cookieSoldArray[i] //  data from object
-  //     storeOutput.appendChild(storeNameList);
-
-  //   }
-
-  // },
-
-  // totalNumberOfCookies: function () {
-  //   for (var i = 0; i < this.cookieSoldArray.length; i++){
-  //     this.storesCookieTotalSales += this.cookieSoldArray[i];
-  //    }
-    
-
-  // },
-  // outputStoreTotalDailySales: function() {
-  //   var storeTotalSales = document.getElementById('storeStatistics-output-SEA'); // parent
-  //   var storeTotalSalesOutput = document.createElement('li'); // child
-  //   storeTotalSalesOutput.textContent = 'Total: ' + this.storesCookieTotalSales;
-  //   storeTotalSales.appendChild(storeTotalSalesOutput);
-
-  // }
-
-// };
-
-// Make the calls for the object to run 
-
-// storeStatistics.cookiesSoldPerHour();
-// storeStatistics.totalNumberOfCookies();
-// storeStatistics.outputStoreName();
-// storeStatistics.outputStoreStatistics();
-// storeStatistics.outputStoreTotalDailySales();
 
 //========  New Store ======
 
