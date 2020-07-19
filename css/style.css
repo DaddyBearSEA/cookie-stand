@@ -1,38 +1,148 @@
+/*  
+1. Create wireframe for sight
+2. make sure elements are in HTML
+3. setup fonts per instructions
+  3.1 A specified standard sans-serif web font for data (such as Arial, Verdana, or Helvetica)
+  3.2	A specified standard serif web font for text (such as Georgia, Times, etc.)
+  3.3	Specified different font colors for all three font usages
+4. background color for page, elements such as tables and boxes
 
+
+
+*/
 body{
-  max-width: 960px;
-  margin: auto;
-  background-color: salmon;
+
+   background-color: lavenderblush;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      
 }
 header {
-  float: left;
-  padding: 25px;
-  border-radius: 25px;
+    margin: 0px auto;
+    width: 960px;
+    height: 175px;
+    background-color: salmon;
+    /* display: flex; */
+    
+}
+header h1{
+  text-align: center;
+}
+header img {
+  margin-top: 5px; 
+  /* padding-left: 90px; */
+  float: center;
+  margin: 0px auto;
+  width: 300px;
+  
 }
 nav {
+  /* margin-top: 20px; */
+  /* margin-right: 60px; */
+  float: right;
+  outline: seagreen 2px dotted;
+}
+
+header > nav > ul > li {
+  
+  display: inline-block;
+  width: 100px;
+  border: 2px solid black;
+  margin-right: 30px;
+  border-radius: 25px;
+  text-align: center;
+
+}
+main {
   margin: 0px auto;
   width: 960px;
+  background-color: salmon;
 }
 
-header img {
-  margin-top: 10px;
+.hero{
+  /* margin: 20px auto;
+  width: 960px; */
+  display: flex
+}
+
+.hero img{
   float: left;
-  margin-right: 30px;
-  width: 300px;
+  padding: 10px;
+  /* carousel */
 }
-header ul {
-    list-style: none;
+.hero p{
+  float: right;
+  padding: 15px;
+}
+div{
+  background-color: salmon;
+}
+.features{
+  /* background-color: salmon; */
+  margin: 0px auto;
+  width: 960px;
+  display: flex
 }
 
-header ul li{
+section{
+  background-color: salmon;
+  /* display: flex; */
+}
+.weekly-cookie{
+  margin: 0px auto;
+  /* flex: 1; */
+}
+.weekly-cookie img p{
+  vertical-align: middle;
+  padding-top: 10px;
+  
+}
+.monthly-feature {
+  vertical-align: middle;
+  /* flex: 1; */
+}
+.monthly-blog{
+  /* flex: 1; */
+
+}
+
+footer{
+  margin: 0px auto;
+  width: 960px;
+  background-color: salmon;
+  outline: dotted 5px green;
+  
+}
+footer ul {
+  list-style: none;
+}
+footer li {
   display: inline-block;
-  line-height: 90px;
-  margin-right: 90px;
-
+  vertical-align: auto;
+  font-size: x-small;
+  padding: 25px;
 }
+
+footer > p{
+    background-color: salmon;
+  float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .buildNewStore {
   display: inline-block;
-  background-color: skyblue;
+  /* background-color: skyblue; */
   
 }
 table {
@@ -55,7 +165,7 @@ td{
 }
 div{
   display: inline-block;
-  background-color: skyblue;  
+  /* background-color: skyblue;   */
 }
  
 div ul{
