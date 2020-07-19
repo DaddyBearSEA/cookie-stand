@@ -35,6 +35,24 @@ header ul li{
   background-color: skyblue;
   
 }
+table {
+  outline: ridge 5px greenyellow;
+  align-content: center;
+  float: inherit;
+  table-layout: auto;
+}
+th{
+  background-color: lightcoral;
+  display: none;
+}
+tr{
+  background-color: lightpink;
+
+}
+
+td{
+  background-color: linen;
+}
 div{
   display: inline-block;
   background-color: skyblue;  

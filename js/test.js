@@ -190,16 +190,16 @@ storeStatistics.outputStoreTotalDailySales();
 //     nameOutput.appendChild(nameStoreOutput);
 //   },
 
-//   outputStoreStatistics: function () {
-//     for (var i = 0; i < this.cookieSoldArray.length; i++) {
-//       var storeOutput = document.getElementById('storeStatistics-output-LIMA'); // parent
-//       var storeNameList = document.createElement('li'); // child
-//       storeNameList.textContent = hoursOfOp[i] + ' ' + this.cookieSoldArray[i] //  data from object
-//       storeOutput.appendChild(storeNameList);
+  outputStoreStatistics: function () {
+    for (var i = 0; i < this.cookieSoldArray.length; i++) {
+      var storeOutput = document.getElementById('storeStatistics-output-LIMA'); // parent
+      var storeNameList = document.createElement('li'); // child
+      storeNameList.textContent = hoursOfOp[i] + ' ' + this.cookieSoldArray[i] //  data from object
+      storeOutput.appendChild(storeNameList);
 
-//     }
+    }
 
-//   },
+  },
 
 //   totalNumberOfCookies: function () {
 //     for (var i = 0; i < this.cookieSoldArray.length; i++){
